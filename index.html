@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button id="pay">Pay $5</button>
+  <script>
+    document.getElementById('pay').onclick = async () => {
+      const res = await fetch('/create-checkout-session', { method: 'POST' });
+      const data = await res.json();
+      window.location = data.url;
+    };
+  </script>
+</body>
+</html>
